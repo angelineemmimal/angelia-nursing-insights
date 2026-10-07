@@ -1,140 +1,198 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GeoAngelCreations | Official Store</title>
+    <title>Angelina Academy | Nursing Certification & Tutoring</title>
     <style>
+        /* CSS Styles */
         :root {
-            --primary: #2c3e50;
-            --accent: #e74c3c;
-            --bg: #f9f9f9;
+            --primary-color: #0056b3; /* Medical Blue */
+            --secondary-color: #00a8e8;
+            --text-color: #333;
+            --bg-color: #f4f7f6;
         }
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+        * {
             margin: 0;
             padding: 0;
-            background-color: var(--bg);
-            color: #333;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
         header {
-            background-color: var(--primary);
-            color: white;
-            padding: 1rem 5%;
+            background-color: white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .navbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 1rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
         }
+
         .logo {
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             font-weight: bold;
-            letter-spacing: 1px;
+            color: var(--primary-color);
+            text-decoration: none;
         }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary-color);
+        }
+
         .hero {
+            background: linear-gradient(rgba(0, 86, 179, 0.8), rgba(0, 168, 232, 0.8)), url('https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover;
+            color: white;
             text-align: center;
-            padding: 4rem 1rem;
-            background-color: white;
-            border-bottom: 1px solid #ddd;
+            padding: 100px 20px;
         }
-        .hero h2 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
         }
-        .products {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            padding: 3rem 5%;
-        }
-        .product-card {
-            background: white;
-            border-radius: 8px;
-            padding: 1.5rem;
-            text-align: center;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            transition: transform 0.2s;
-        }
-        .product-card:hover {
-            transform: translateY(-5px);
-        }
-        .product-placeholder {
-            width: 100%;
-            height: 200px;
-            background-color: #eee;
-            border-radius: 4px;
-            margin-bottom: 1rem;
-        }
-        .price {
-            color: var(--accent);
-            font-weight: bold;
+
+        .hero p {
             font-size: 1.2rem;
-            margin: 10px 0;
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
-        .buy-btn {
-            background-color: var(--accent);
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 4px;
-            cursor: pointer;
+
+        .btn {
+            background-color: white;
+            color: var(--primary-color);
+            padding: 10px 25px;
+            text-decoration: none;
             font-weight: bold;
+            border-radius: 5px;
+            transition: 0.3s;
         }
-        .buy-btn:hover {
-            background-color: #c0392b;
-        }
-        footer {
-            text-align: center;
-            padding: 2rem;
-            background-color: var(--primary);
+
+        .btn:hover {
+            background-color: var(--text-color);
             color: white;
-            margin-top: 2rem;
+        }
+
+        .services {
+            padding: 60px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .services h2 {
+            margin-bottom: 40px;
+            color: var(--primary-color);
+        }
+
+        .card-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            width: 300px;
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+        }
+
+        .card h3 {
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+        }
+
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
         }
     </style>
 </head>
 <body>
 
+    <!-- Header & Navigation -->
     <header>
-        <div class="logo">GeoAngelCreations</div>
-        <nav>
-            <!-- Add a cart icon here later -->
-            Shop | About | Contact
+        <nav class="navbar">
+            <a href="#" class="logo">🩺 Angelina Academy</a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Programs</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
         </nav>
     </header>
 
-    <section class="hero">
-        <h2>Welcome to GeoAngelCreations</h2>
-        <p>Discover our unique, hand-picked collections.</p>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <h1>Excellence in Nursing Education</h1>
+        <p>Empowering the next generation of healthcare heroes through top-tier Nursing Certification prep and personalized Tutoring.</p>
+        <a href="#contact" class="btn">Enroll Today</a>
     </section>
 
-    <section class="products">
-        <!-- Product 1 -->
-        <div class="product-card">
-            <div class="product-placeholder"></div>
-            <h3>Signature Item One</h3>
-            <p class="price">$29.99</p>
-            <button class="buy-btn">Add to Cart</button>
-        </div>
-
-        <!-- Product 2 -->
-        <div class="product-card">
-            <div class="product-placeholder"></div>
-            <h3>Signature Item Two</h3>
-            <p class="price">$39.99</p>
-            <button class="buy-btn">Add to Cart</button>
-        </div>
-
-        <!-- Product 3 -->
-        <div class="product-card">
-            <div class="product-placeholder"></div>
-            <h3>Signature Item Three</h3>
-            <p class="price">$49.99</p>
-            <button class="buy-btn">Add to Cart</button>
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <h2>Our Educational Services</h2>
+        <div class="card-container">
+            <div class="card">
+                <h3>Nursing Certifications</h3>
+                <p>Comprehensive preparation courses for NCLEX, CNA, CPR, and advanced practice nursing certifications. We ensure you are ready for exam day.</p>
+            </div>
+            <div class="card">
+                <h3>1-on-1 Tutoring</h3>
+                <p>Struggling with Anatomy, Pharmacology, or Med-Surg? Get personalized tutoring from experienced nursing professionals.</p>
+            </div>
+            <div class="card">
+                <h3>Clinical Skills Prep</h3>
+                <p>Hands-on guidance and theoretical knowledge to help you master patient care, clinical assessments, and critical thinking.</p>
+            </div>
         </div>
     </section>
 
-    <footer>
-        <p>&copy; 2026 GeoAngelCreations. All rights reserved.</p>
+    <!-- Footer -->
+    <footer id="contact">
+        <p>&copy; 2026 Angelina Academy - Nursing Certification and Tutoring. All rights reserved.</p>
+        <p>Email: contact@angelinaacademy.edu | Phone: (555) 123-4567</p>
     </footer>
 
 </body>
